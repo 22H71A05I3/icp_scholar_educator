@@ -5,6 +5,7 @@
       "package": "icp_scholar_backend",
       "type": "rust"
     },
+<<<<<<< HEAD
     "icp_scholar_frontend": {
       "dependencies": [
         "icp_scholar_backend"
@@ -25,6 +26,11 @@
       },
       "type": "custom",
       "wasm": "https://github.com/dfinity/internet-identity/releases/latest/download/internet_identity_dev.wasm.gz"
+=======
+    "icp_scholar_core_backend_frontend": {
+      "type": "assets",
+      "source": ["dist/icp_scholar_core_backend_frontend/"]
+>>>>>>> 34f6918 (commit)
     }
   },
   "defaults": {

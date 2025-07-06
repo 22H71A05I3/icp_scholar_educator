@@ -1,0 +1,40 @@
+type Course = record {
+  id : nat64;
+  title : text;
+  description : text;
+  enrolled_learners : vec principal;
+  completed_learners : vec principal;
+  educator : principal;
+};
+type Feedback = record {
+  user : principal;
+  course_id : nat64;
+  comment : text;
+  rating : nat8;
+};
+type Role = variant { Educator; Learner };
+type User = record {
+  enrolled_courses : vec nat64;
+  name : text;
+  role : Role;
+  completed_courses : vec nat64;
+};
+service : () -> {
+  complete_course : (nat64) -> (text);
+  create_course : (text, text) -> (text);
+  delete_course : (nat64) -> (text);
+  drop_course : (nat64) -> (text);
+  edit_profile : (text) -> (text);
+  enroll_course : (nat64) -> (text);
+  get_all_courses : () -> (vec Course) query;
+  get_all_users : () -> (vec User) query;
+  get_certificate : (nat64) -> (text) query;
+  get_course_average_rating : (nat64) -> (float32) query;
+  get_course_feedback : (nat64) -> (vec Feedback) query;
+  get_my_completed_courses : () -> (vec Course) query;
+  get_my_created_courses : () -> (vec Course) query;
+  get_my_enrolled_courses : () -> (vec Course) query;
+  get_user_profile : () -> (opt User) query;
+  register_user : (text, text) -> (text);
+  submit_feedback : (nat64, nat8, text) -> (text);
+}
